@@ -10,11 +10,11 @@ public interface UserService {
 
     public List<UserDto> findAll();
 
-    Optional<UserDto> findById(UUID id);
+    Optional<UserDto> findById(UUID userCode);
 
     UserDto save(UserDto userDTO);
 
-    void deleteById(UUID id);
+    void deleteById(UUID userCode);
 
-    UserDto updateUser(UUID id, UserDto userDto);
+    UserDto updateUser(UUID userCode, UserDto userDto);
 }
