@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class UserDto {
-    private UUID userCode =UUID.randomUUID();
+    private UUID userCode = UUID.randomUUID();
     private String name;
     private String cpf;
     private String email;
