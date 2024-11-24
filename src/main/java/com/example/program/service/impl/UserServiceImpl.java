@@ -62,9 +62,7 @@ public class UserServiceImpl implements UserService {
     public UserDto updateUser(UUID id, UserDto userDto) {
         var existingUser = userRepository.findById(id.toString())
                 .orElseThrow(() -> new UserNotFoundException(id));
-
         BeanUtils.copyProperties(userDto, existingUser, getNullPropertyNames(userDto));
-
         userRepository.save(existingUser);
         return userMapper.toDto(existingUser);
     }
@@ -72,7 +70,6 @@ public class UserServiceImpl implements UserService {
     private static String[] getNullPropertyNames(UserDto source) {
         final BeanWrapper src = new BeanWrapperImpl(source);
         java.beans.PropertyDescriptor[] pds = src.getPropertyDescriptors();
-
         return Arrays.stream(pds)
                 .map(java.beans.PropertyDescriptor::getName)
                 .filter(name -> src.getPropertyValue(name) == null)

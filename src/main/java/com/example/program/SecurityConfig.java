@@ -15,9 +15,9 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(authorizeRequests -> 
                 authorizeRequests
-                    .anyRequest().permitAll() // Permite todas as requisições sem autenticação
+                    .anyRequest().permitAll()
             )
-            .csrf(csrf -> csrf.disable()); // Desabilita CSRF para permitir requisições não autenticadas
+            .csrf(csrf -> csrf.disable());
         return http.build();
     }
 }
